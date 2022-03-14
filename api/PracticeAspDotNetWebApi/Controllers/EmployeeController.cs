@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -121,7 +120,7 @@ namespace PracticeAspDotNetWebApi.Controllers
                 var httpRequest = Request.Form;
                 var postedFile = httpRequest.Files[0];
                 string fileName = postedFile.FileName;
-                var physicalPath = _env.ContentRootPath + "/Photos" + fileName;
+                var physicalPath = _env.ContentRootPath + "/Photos/" + fileName;
                 using (var stream = new FileStream(physicalPath,FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
